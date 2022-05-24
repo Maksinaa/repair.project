@@ -35,7 +35,7 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('admin.applications.index');
+        return redirect()->route('admin.applications.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class ApplicationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect('admin.applications.index');
+        return redirect()->route('admin.applications.index');
     }
 
     /**
@@ -80,6 +80,6 @@ class ApplicationController extends Controller
      */
     public function destroy($id)
     {
-        return redirect('admin.applications.index');
+        return redirect()->route('admin.applications.index');
     }
 }

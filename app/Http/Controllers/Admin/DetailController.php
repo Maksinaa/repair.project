@@ -35,7 +35,7 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('admin.details.index');
+        return redirect()->route('admin.details.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class DetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect('admin.details.index');
+        return redirect()->route('admin.details.index');
     }
 
     /**
@@ -80,6 +80,6 @@ class DetailController extends Controller
      */
     public function destroy($id)
     {
-        return redirect('admin.details.index');
+        return redirect()->route('admin.details.index');
     }
 }

@@ -35,7 +35,7 @@ class OfficeController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('admin.offices.index');
+        return redirect()->route('admin.offices.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class OfficeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect('admin.offices.index');
+        return redirect()->route('admin.offices.index');
     }
 
     /**
@@ -80,6 +80,6 @@ class OfficeController extends Controller
      */
     public function destroy($id)
     {
-        return redirect('admin.offices.index');
+        return redirect()->route('admin.offices.index');
     }
 }

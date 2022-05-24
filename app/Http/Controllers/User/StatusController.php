@@ -14,6 +14,6 @@ class StatusController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.status');
     }
 }

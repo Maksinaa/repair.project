@@ -35,7 +35,7 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('admin.reviews.index');
+        return redirect()->route('admin.reviews.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect('admin.reviews.index');
+        return redirect()->route('admin.reviews.index');
     }
 
     /**
@@ -80,6 +80,6 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        return redirect('admin.reviews.index');
+        return redirect()->route('admin.reviews.index');
     }
 }

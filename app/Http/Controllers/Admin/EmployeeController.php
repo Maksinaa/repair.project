@@ -35,7 +35,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('admin.employees.index');
+        return redirect()->route('admin.employees.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect('admin.employees.index');
+        return redirect()->route('admin.employees.index');
     }
 
     /**
@@ -80,6 +80,6 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        return redirect('admin.employees.index');
+        return redirect()->route('admin.employees.index');
     }
 }

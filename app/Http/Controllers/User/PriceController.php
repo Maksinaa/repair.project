@@ -14,6 +14,6 @@ class PriceController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.price');
     }
 }

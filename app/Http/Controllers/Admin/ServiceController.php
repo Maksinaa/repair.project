@@ -35,7 +35,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('admin.services.index');
+        return redirect()->route('admin.services.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect('admin.services.index');
+        return redirect()->route('admin.services.index');
     }
 
     /**
@@ -80,6 +80,6 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        return redirect('admin.services.index');
+        return redirect()->route('admin.services.index');
     }
 }

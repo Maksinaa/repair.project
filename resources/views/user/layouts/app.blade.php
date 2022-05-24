@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                    @include('user.layouts.navbar')
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -78,6 +78,18 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer class="container pt-5 my-5 text-muted border-top">
+    <div class="row">
+      <div class="col-sm-6">
+        ИП Столбов С.Ю. &copy; 2021
+      </div>
+      <div class="col-sm-6 text-right">
+        Мы в социальных сетях:
+        <img src="img/vk-logo.svg" alt="" height="24" class="d-inline-block align-text-top">
+      </div>
+    </div>
+  </footer>
+
     </div>
 </body>
 </html>

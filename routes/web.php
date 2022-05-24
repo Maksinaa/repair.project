@@ -5,14 +5,33 @@ use App\Http\Controllers\Admin\OfficeController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\DetailController;
-use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\User\IndexController;
+use App\Http\Controllers\User\PriceController;
+use App\Http\Controllers\User\StatusController;
+use App\Http\Controllers\User\ReviewController as UserReviewController;
 /*
 | Web Routes
 */
 
-Route::view('/', 'user.index');
-Route::view('/admin', 'admin.index');
+//> Открытая часть сайта
+$groupUserData = [
+    // 'prefix' => 'user',
+    'as' => 'user.',
+];
+
+Route::group(
+    $groupUserData,
+    function () {
+        Route::get('/', [IndexController::class, 'index'])->name('index');
+        Route::get('/price', [PriceController::class, 'index'])->name('price');
+        Route::get('/status', [StatusController::class, 'index'])->name('status');
+        Route::resource('reviews', UserReviewController::class);
+    }
+);
+//<
+
 //> Панель администратора
 $groupAdminData = [
     'prefix' => 'admin',
@@ -23,15 +42,17 @@ $groupAdminData = [
 Route::group(
     $groupAdminData,
     function () {
+        Route::view('/', 'admin.index')->name('index');
         Route::resource('offices', OfficeController::class);
         Route::resource('employees', EmployeeController::class);
         Route::resource('applications', ApplicationController::class);
         Route::resource('details', DetailController::class);
         Route::resource('services', ServiceController::class);
-        Route::resource('reviews', ReviewController::class);
+        Route::resource('reviews', AdminReviewController::class);
     }
 );
 //<
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
