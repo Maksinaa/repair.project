@@ -16,15 +16,19 @@
               <thead class="table-dark">
                 <tr>
                   <th scope="col">ID</th>
+                  <th scope="col">Ф.И.О. сотрудника</th>
+                  <th scope="col">Должность</th>
+                  <th scope="col">Офис</th>
                   <th scope="col" class="text-end"></th>
                 </tr>
               </thead>
               <tbody>
                   {{-- @forelse($items as $item) --}}
                   <tr>
-                    <td>
-                        {{-- $item->id --}}
-                    </td>
+                    <td>{{-- $item->id --}}</td>
+                    <td>{{-- $item->name --}}</td>
+                    <td>{{-- $item->position --}}</td>
+                    <td>{{-- $item->office_id --}}</td>
                     <td class="text-end">
                       <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.employees.show', 1) }}">
                         Детали
@@ -41,7 +45,7 @@
                   </tr>
                 {{-- @empty --}}
                   <tr>
-                    <td colspan="2">
+                    <td colspan="5">
                       <h3 class="text-center">Нет сотридников</h3>
                     </td>
                   </tr>

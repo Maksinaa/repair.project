@@ -16,6 +16,9 @@
               <thead class="table-dark">
                 <tr>
                   <th scope="col">ID</th>
+                  <th scope="col">Название поля</th>
+                  <th scope="col">Значение</th>
+                  <th scope="col">Описание значения</th>
                   <th scope="col" class="text-end"></th>
                 </tr>
               </thead>
@@ -24,6 +27,15 @@
                   <tr>
                     <td>
                         {{-- $item->id --}}
+                    </td>
+                    <td>
+                        {{-- $item->name --}}
+                    </td>
+                    <td>
+                        {{-- $item->value --}}
+                    </td>
+                    <td>
+                        {{-- $item->description --}}
                     </td>
                     <td class="text-end">
                       <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.details.show', 1) }}">
@@ -41,7 +53,7 @@
                   </tr>
                 {{-- @empty --}}
                   <tr>
-                    <td colspan="2">
+                    <td colspan="5">
                       <h3 class="text-center">Нет реквизитов</h3>
                     </td>
                   </tr>

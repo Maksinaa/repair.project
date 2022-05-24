@@ -13,14 +13,38 @@
             <table class="table table-sm table-bordered">
               <thead class="table-dark">
                 <tr>
-                  <th class="col-2">Field</th>
-                  <th class="col">Data</th>
+                  <th class="col-3">Атрибут</th>
+                  <th class="col">Данные</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{ 1 }}</td>
+                  <td>{{-- $item->id --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Название офиса</th>
+                  <td>{{-- $item->name --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Адрес офиса</th>
+                  <td>{{-- $item->address --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Контактный телефон</th>
+                  <td>{{-- $item->phone --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Режим работы</th>
+                  <td>{{-- $item->hours --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Группа в социальных сетях</th>
+                  <td>{{-- $item->social --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ссылка на онлайн карту</th>
+                  <td>{{-- $item->map --}}</td>
                 </tr>
               </tbody>
             </table>

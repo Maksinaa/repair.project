@@ -16,6 +16,10 @@
               <thead class="table-dark">
                 <tr>
                   <th scope="col">ID</th>
+                  <th scope="col">Текст отзыва</th>
+                  <th scope="col">Дата отзыва</th>
+                  <th scope="col">Оценка</th>
+                  <th scope="col">Статус отзыва</th>
                   <th scope="col" class="text-end"></th>
                 </tr>
               </thead>
@@ -24,6 +28,18 @@
                   <tr>
                     <td>
                         {{-- $item->id --}}
+                    </td>
+                    <td>
+                        {{-- $item->text --}}
+                    </td>
+                    <td>
+                        {{-- $item->date --}}
+                    </td>
+                    <td>
+                        {{-- $item->rating --}}
+                    </td>
+                    <td>
+                        {{-- $item->status --}}
                     </td>
                     <td class="text-end">
                       <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.reviews.show', 1) }}">
@@ -41,7 +57,7 @@
                   </tr>
                 {{-- @empty --}}
                   <tr>
-                    <td colspan="2">
+                    <td colspan="6">
                       <h3 class="text-center">Нет отзывов</h3>
                     </td>
                   </tr>

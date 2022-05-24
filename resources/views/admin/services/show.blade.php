@@ -13,14 +13,26 @@
             <table class="table table-sm table-bordered">
               <thead class="table-dark">
                 <tr>
-                  <th class="col-2">Field</th>
-                  <th class="col">Data</th>
+                <th class="col-3">Атрибут</th>
+                  <th class="col">Данные</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{ 1 }}</td>
+                  <td>{{-- $item->id --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Название услуги</th>
+                  <td>{{-- $item->name --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Цена</th>
+                  <td>{{-- $item->price --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Примечание</th>
+                  <td>{{-- $item->note --}}</td>
                 </tr>
               </tbody>
             </table>

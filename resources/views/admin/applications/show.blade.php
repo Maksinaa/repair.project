@@ -13,14 +13,42 @@
             <table class="table table-sm table-bordered">
               <thead class="table-dark">
                 <tr>
-                  <th class="col-2">Field</th>
-                  <th class="col">Data</th>
+                <th class="col-3">Атрибут</th>
+                  <th class="col">Данные</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{ 1 }}</td>
+                  <td>{{-- $item->id --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Дата заявки</th>
+                  <td>{{-- $item->date --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Модель оборудования</th>
+                  <td>{{-- $item->model --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Описание неисправности</th>
+                  <td>{{-- $item->fault --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ф.И.О. заказчика</th>
+                  <td>{{-- $item->customer --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Статус заявки</th>
+                  <td>{{-- $item->status --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Мастер</th>
+                  <td>{{-- $item->master --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Дата завершения ремонта</th>
+                  <td>{{-- $item->completion --}}</td>
                 </tr>
               </tbody>
             </table>

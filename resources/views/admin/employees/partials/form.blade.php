@@ -1,8 +1,8 @@
 <div class="mb-3">
-  <label for="number" class="form-label">Storage cell number</label>
-  <input type="text" class="form-control @error('number') is-invalid @enderror" id="number" name="number" value="{{-- $item->number ?? old('number') --}}"
+  <label for="name" class="form-label">Ф.И.О сотрудника</label>
+  <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{-- $item->name ?? old('name') --}}"
     >
-  @error('number')
+  @error('name')
     <div class="invalid-feedback">
       {{ $message }}
     </div>
@@ -10,26 +10,51 @@
 </div>
 
 <div class="mb-3">
-  <label for="list" class="form-label">List</label>
-  <textarea class="form-control @error('list') is-invalid @enderror" name="list" id="list"
-    rows="5">
-     {{-- $item->list ?? old('list') --}}
-</textarea>
-  @error('list')
+  <label for="position" class="form-label">Должность</label>
+  <input type="text" class="form-control @error('position') is-invalid @enderror" id="position" name="position" value="{{-- $item->position ?? old('position') --}}"
+    >
+  @error('position')
     <div class="invalid-feedback">
       {{ $message }}
     </div>
   @enderror
 </div>
 
-<div class="form-check mb-3">
-  <input name="long_storage" type="hidden" value="0">
-  <input type="checkbox" class="form-check-input" name="long_storage" id="long_storage" value="1"
-  {{-- ($item->long_storage ?? old('long_storage')) == 1 ? 'checked' : '' --}}>
-  <label class="form-check-label" for="long_storage">
-    Long term storage
-  </label>
+<div class="mb-3">
+  <label for="office_id" class="form-label">Офис</label>
+  <select class="form-select @error('office_id') is-invalid @enderror" id="office_id" name="office_id">
+    <option value="{{-- $item->office_id --}}">Название офиса</option>
+  </select>
+  @error('office_id')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+  @enderror
 </div>
+
+<div class="mb-3">
+  <label for="email" class="form-label">Адрес электронной почты</label>
+  <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{-- $item->email ?? old('email') --}}"
+    >
+  @error('email')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+  @enderror
+</div>
+
+<div class="mb-3">
+  <label for="password" class="form-label">Пароль</label>
+  <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{-- $item->password ?? old('password') --}}"
+    >
+  @error('password')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+  @enderror
+</div>
+
+
 <hr>
 <button type="submit" id="save" class="btn btn-primary">Сохранить</button>
 <a class="btn btn-danger" id="cancel" href="{{ route('admin.employees.index') }}">Отмена</a>

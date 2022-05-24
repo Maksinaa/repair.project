@@ -13,14 +13,34 @@
             <table class="table table-sm table-bordered">
               <thead class="table-dark">
                 <tr>
-                  <th class="col-2">Field</th>
-                  <th class="col">Data</th>
+                <th class="col-3">Атрибут</th>
+                  <th class="col">Данные</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{ 1 }}</td>
+                  <td>{{-- $item->id --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ф.И.О сотрудника</th>
+                  <td>{{-- $item->name --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Должность</th>
+                  <td>{{-- $item->position --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">ID офиса</th>
+                  <td>{{-- $item->office_id --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Адрес электронной почты</th>
+                  <td>{{-- $item->email --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Пароль</th>
+                  <td>{{-- $item->password --}}</td>
                 </tr>
               </tbody>
             </table>

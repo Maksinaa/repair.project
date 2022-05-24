@@ -13,14 +13,38 @@
             <table class="table table-sm table-bordered">
               <thead class="table-dark">
                 <tr>
-                  <th class="col-2">Field</th>
-                  <th class="col">Data</th>
+                <th class="col-3">Атрибут</th>
+                  <th class="col">Данные</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{ 1 }}</td>
+                  <td>{{-- $item->id --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Имя</th>
+                  <td>{{-- $item->name --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Текст отзыва</th>
+                  <td>{{-- $item->text --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Дата отзыва</th>
+                  <td>{{-- $item->date --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Оценка</th>
+                  <td>{{-- $item->rating --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Адрес электронной почты</th>
+                  <td>{{-- $item->email --}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Статус отзыва</th>
+                  <td>{{-- $item->status --}}</td>
                 </tr>
               </tbody>
             </table>
