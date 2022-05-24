@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <div class="card">
           <h3 class="card-header">
-            Детали заявка
+            Детали заявки
           </h3>
 
           <div class="card-body">

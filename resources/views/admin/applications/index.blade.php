@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <div class="card">
           <h3 class="card-header">
-            заявкы
+            Заявки
             <a class="btn btn-sm btn-success float-end" id="new" href="{{ route('admin.applications.create') }}">
               Добавить
             </a>
@@ -42,7 +42,7 @@
                 {{-- @empty --}}
                   <tr>
                     <td colspan="2">
-                      <h3 class="text-center">Нет заявков</h3>
+                      <h3 class="text-center">Нет заявок</h3>
                     </td>
                   </tr>
                 {{--@endforelse--}}

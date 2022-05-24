@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <div class="card">
           <h3 class="card-header">
-            Добавить офис
+            Добавить отзыв
           </h3>
 
           <div class="card-body">
