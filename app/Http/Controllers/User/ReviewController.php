@@ -1,22 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\User;
-
+use App\Models\Review;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('user.reviews.index');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -35,51 +25,9 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->route('user.reviews.index');
-    }
+        // создание записи из данных формы
+        Review::create($request->except('status'));
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return view('user.reviews.show', compact('id'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        return view('user.reviews.edit', compact('id'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        return redirect()->route('user.reviews.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        return redirect()->route('user.reviews.index');
+        return redirect()->route('user.reviews.create')->with('success', 'Ваш отзыв успешно добавлен');
     }
 }

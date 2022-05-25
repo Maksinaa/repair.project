@@ -1,6 +1,20 @@
 @extends('user.layouts.app')
 
 @section('content')
+
+@if (session('success'))
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          {{ session('success') }}
+        </div>
+      </div>
+    </div>
+  </div>
+@endif
+
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">

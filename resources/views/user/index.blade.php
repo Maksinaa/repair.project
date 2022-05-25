@@ -94,38 +94,26 @@
     <!-- Отзывы -->
     <div id="carouselExampleCaptions" class=" mt-3 carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-          aria-label="Slide 3"></button>
+      @forelse($reviews as $review)
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$loop->index}}" @if ($loop->first) class="active"
+          aria-current="true" @endif aria-label="Slide {{$loop->index}}"></button>
+          @empty
+        @endforelse
       </div>
+
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="img/bg.svg" height="200px" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Василий1</h5>
-            <p>Молодец, все отлично починил</p>
-            <p>Оценка 5 из 5</p>
-          </div>
+      @forelse($reviews as $review)
+
+        <div class="carousel-item @if ($loop->first) active @endif">
+        <img src="img/bg.svg" height="200px" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+            <h5>{{ $review->name ?? 'Неизвестный пользователь' }} в {{ $review->created_at }}</h5>
+            <p>{{ $review->text }}</p>
+            <p>{{ $review->rating }} из 5</p>
         </div>
-        <div class="carousel-item">
-          <img src="img/bg.svg" height="200px" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Василий2</h5>
-            <p>Молодец, все отлично починил</p>
-            <p>Оценка 5 из 5</p>
-          </div>
         </div>
-        <div class="carousel-item">
-          <img src="img/bg.svg" height="200px" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Василий3</h5>
-            <p>Молодец, все отлично починил</p>
-            <p>Оценка 5 из 5</p>
-          </div>
-        </div>
+        @empty
+        @endforelse
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
         data-bs-slide="prev">

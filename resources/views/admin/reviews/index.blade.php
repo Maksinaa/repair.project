@@ -33,7 +33,7 @@
                         {{ $item->text }}
                     </td>
                     <td>
-                        {{ $item->date }}
+                        {{ $item->created_at }}
                     </td>
                     <td>
                         {{ $item->rating }}
