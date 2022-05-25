@@ -17,6 +17,7 @@ class IndexController extends Controller
         // получение данных с сортировкой по полю number
         $reviews = Review::where('status', 'published')
         ->orderByDesc('created_at')
+        ->limit(5)
         ->get(['id', 'name', 'text', 'rating', 'created_at']);
 
         return view('user.index', compact('reviews'));
