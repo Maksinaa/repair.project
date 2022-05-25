@@ -24,7 +24,7 @@
                 </tr>
               </tbody>
             </table>
-            <a class="btn btn-secondary" id="edit" href="{{ route('user.reviews.edit', 1) }}">
+            <a class="btn btn-secondary" id="edit" href="{{ route('user.reviews.edit', $item->id) }}">
               Редактировать
             </a>
             <a class="btn btn-danger" id="cancel" href="{{ route('user.reviews.index') }}">

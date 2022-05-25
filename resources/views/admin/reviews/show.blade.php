@@ -20,35 +20,35 @@
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{-- $item->id --}}</td>
+                  <td>{{ $item->id }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Имя</th>
-                  <td>{{-- $item->name --}}</td>
+                  <td>{{ $item->name }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Текст отзыва</th>
-                  <td>{{-- $item->text --}}</td>
+                  <td>{{ $item->text }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Дата отзыва</th>
-                  <td>{{-- $item->date --}}</td>
+                  <td>{{ $item->created_at }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Оценка</th>
-                  <td>{{-- $item->rating --}}</td>
+                  <td>{{ $item->rating }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Адрес электронной почты</th>
-                  <td>{{-- $item->email --}}</td>
+                  <td>{{ $item->email }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Статус отзыва</th>
-                  <td>{{-- $item->status --}}</td>
+                  <td>{{ $item->status }}</td>
                 </tr>
               </tbody>
             </table>
-            <a class="btn btn-secondary" id="edit" href="{{ route('admin.reviews.edit', 1) }}">
+            <a class="btn btn-secondary" id="edit" href="{{ route('admin.reviews.edit', $item->id) }}">
               Редактировать
             </a>
             <a class="btn btn-danger" id="cancel" href="{{ route('admin.reviews.index') }}">

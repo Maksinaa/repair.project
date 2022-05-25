@@ -24,44 +24,44 @@
                 </tr>
               </thead>
               <tbody>
-              {{-- @forelse($items as $item) --}}
+               @forelse($items as $item)
                   <tr>
                     <td>
-                        {{-- $item->id --}}
+                        {{ $item->id }}
                     </td>
                     <td>
-                        {{-- $item->text --}}
+                        {{ $item->text }}
                     </td>
                     <td>
-                        {{-- $item->date --}}
+                        {{ $item->date }}
                     </td>
                     <td>
-                        {{-- $item->rating --}}
+                        {{ $item->rating }}
                     </td>
                     <td>
-                        {{-- $item->status --}}
+                        {{ $item->status }}
                     </td>
                     <td class="text-end">
-                      <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.reviews.show', 1) }}">
+                      <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.reviews.show', $item->id) }}">
                         Детали
                       </a>
-                      <a class="btn btn-sm btn-secondary" id="edit" href="{{ route('admin.reviews.edit', 1) }}">
+                      <a class="btn btn-sm btn-secondary" id="edit" href="{{ route('admin.reviews.edit', $item->id) }}">
                         Редактировать
                       </a>&nbsp;
-                      <form action="{{ route('admin.reviews.destroy', 1) }}" method="post" class="float-end">
+                      <form action="{{ route('admin.reviews.destroy', $item->id) }}" method="post" class="float-end">
                         @csrf
                         @method('delete')
                         <button class="btn btn-sm btn-danger" id="delete" type="submit">Удалить</button>
                       </form>
                     </td>
                   </tr>
-                {{-- @empty --}}
+                 @empty
                   <tr>
                     <td colspan="6">
                       <h3 class="text-center">Нет отзывов</h3>
                     </td>
                   </tr>
-                {{--@endforelse--}}
+                @endforelse
               </tbody>
             </table>
           </div>

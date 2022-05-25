@@ -10,7 +10,7 @@
           </h3>
 
           <div class="card-body">
-            <form action="{{ route('user.reviews.update', 1) }}" method="post">
+            <form action="{{ route('user.reviews.update', $item->id) }}" method="post">
               @csrf
               @method('put')
 
