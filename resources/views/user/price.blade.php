@@ -12,23 +12,28 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Просто посмотреть</td>
-          <td>любой вид устройств</td>
-          <td>1 000 р.</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Диагностика неисправности</td>
-          <td>любой вид устройств</td>
-          <td>700 р.</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Оно само сломалось</td>
-          <td>1 200 р.</td>
-        </tr>
+      @forelse($items as $item)
+                  <tr>
+                    <td>
+                        {{$loop->iteration }}
+                    </td>
+                    <td>
+                        {{ $item->name }}
+                    </td>
+                    <td>
+                        {{ $item->note }}
+                    </td>
+                    <td>
+                        {{ $item->price }}
+                    </td>
+                  </tr>
+                 @empty
+                  <tr>
+                    <td colspan="4">
+                      <h3 class="text-center">На текущий момент услуги отсутствуют</h3>
+                    </td>
+                  </tr>
+                @endforelse
       </tbody>
     </table>
 </div>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
-
+use App\Models\Service;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,6 +14,9 @@ class PriceController extends Controller
      */
     public function index()
     {
-        return view('user.price');
+        // получение данных с сортировкой по полю number
+        $items = Service::orderBy('price')->get();
+
+        return view('user.price', compact('items'));
     }
 }
