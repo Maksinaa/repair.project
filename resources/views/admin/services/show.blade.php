@@ -20,23 +20,23 @@
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{-- $item->id --}}</td>
+                  <td>{{ $item->id }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Название услуги</th>
-                  <td>{{-- $item->name --}}</td>
+                  <td>{{ $item->name }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Цена</th>
-                  <td>{{-- $item->price --}}</td>
+                  <td>{{ $item->price }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Примечание</th>
-                  <td>{{-- $item->note --}}</td>
+                  <td>{{ $item->note }}</td>
                 </tr>
               </tbody>
             </table>
-            <a class="btn btn-secondary" id="edit" href="{{ route('admin.services.edit', 1) }}">
+            <a class="btn btn-secondary" id="edit" href="{{ route('admin.services.edit', $item->id) }}">
               Редактировать
             </a>
             <a class="btn btn-danger" id="cancel" href="{{ route('admin.services.index') }}">

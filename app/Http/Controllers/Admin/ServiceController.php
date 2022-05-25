@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Service;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('admin.services.index');
+        // получение данных с сортировкой по полю number
+        $items = Service::orderBy('id')->get();
+
+        return view('admin.services.index', compact('items'));
     }
 
     /**
@@ -35,6 +38,9 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        // создание записи из данных формы
+        Service::create($request->all());
+
         return redirect()->route('admin.services.index');
     }
 
@@ -46,7 +52,10 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        return view('admin.services.show', compact('id'));
+        // получение записи по id
+        $item = Service::findOrFail($id);
+
+        return view('admin.services.show', compact('item'));
     }
 
     /**
@@ -57,7 +66,10 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.services.edit', compact('id'));
+        // получение записи по id
+        $item = Service::findOrFail($id);
+
+        return view('admin.services.edit', compact('item'));
     }
 
     /**
@@ -69,6 +81,11 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // получение записи по id
+        $item = Service::findOrFail($id);
+        // обновление записи по данным формы
+        $item->update($request->all());
+
         return redirect()->route('admin.services.index');
     }
 
@@ -80,6 +97,11 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
+        // получение записи по id
+        $item = Service::findOrFail($id);
+        // удаление записи
+        $item->delete();
+
         return redirect()->route('admin.services.index');
     }
 }

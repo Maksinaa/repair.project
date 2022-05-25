@@ -23,41 +23,41 @@
                 </tr>
               </thead>
               <tbody>
-              {{-- @forelse($items as $item) --}}
+                @forelse($items as $item)
                   <tr>
                     <td>
-                        {{-- $item->id --}}
+                        {{ $item->id }}
                     </td>
                     <td>
-                        {{-- $item->name --}}
+                        {{ $item->name }}
                     </td>
                     <td>
-                        {{-- $item->price --}}
+                        {{ $item->price }}
                     </td>
                     <td>
-                        {{-- $item->note --}}
+                        {{ $item->note }}
                     </td>
                     <td class="text-end">
-                      <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.services.show', 1) }}">
+                      <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.services.show', $item->id) }}">
                         Детали
                       </a>
-                      <a class="btn btn-sm btn-secondary" id="edit" href="{{ route('admin.services.edit', 1) }}">
+                      <a class="btn btn-sm btn-secondary" id="edit" href="{{ route('admin.services.edit', $item->id) }}">
                         Редактировать
                       </a>&nbsp;
-                      <form action="{{ route('admin.services.destroy', 1) }}" method="post" class="float-end">
+                      <form action="{{ route('admin.services.destroy', $item->id) }}" method="post" class="float-end">
                         @csrf
                         @method('delete')
                         <button class="btn btn-sm btn-danger" id="delete" type="submit">Удалить</button>
                       </form>
                     </td>
                   </tr>
-                {{-- @empty --}}
+                 @empty
                   <tr>
                     <td colspan="5">
                       <h3 class="text-center">Нет услуг</h3>
                     </td>
                   </tr>
-                {{--@endforelse--}}
+                @endforelse
               </tbody>
             </table>
           </div>

@@ -1,6 +1,6 @@
 <div class="mb-3">
   <label for="name" class="form-label">Название услуги</label>
-  <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{-- $item->name ?? old('name') --}}"
+  <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $item->name ?? old('name') }}"
     >
   @error('name')
     <div class="invalid-feedback">
@@ -11,7 +11,7 @@
 
 <div class="mb-3">
   <label for="price" class="form-label">Цена</label>
-  <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{-- $item->price ?? old('price') --}}" min="0">
+  <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ $item->price ?? old('price') }}" min="0">
   @error('price')
     <div class="invalid-feedback">
       {{ $message }}
@@ -23,7 +23,7 @@
   <label for="note" class="form-label">Примечание</label>
   <textarea class="form-control @error('note') is-invalid @enderror" name="note" id="note"
     rows="5">
-   {{-- $item->note ?? old('note') --}}
+   {{ $item->note ?? old('note') }}
 </textarea>
   @error('note')
     <div class="invalid-feedback">
