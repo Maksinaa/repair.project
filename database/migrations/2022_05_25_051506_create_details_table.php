@@ -15,7 +15,7 @@ class CreateDetailsTable extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 20);
+            $table->string('name', 20)->unique();
             $table->string('value', 255);
             $table->text('description')->nullable();
             // $table->timestamps();

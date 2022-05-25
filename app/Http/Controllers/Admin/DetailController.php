@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Detail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,10 @@ class DetailController extends Controller
      */
     public function index()
     {
-        return view('admin.details.index');
+        // получение данных с сортировкой по полю number
+        $items = Detail::orderBy('id')->get();
+
+        return view('admin.details.index', compact('items'));
     }
 
     /**
@@ -35,6 +38,9 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
+        // создание записи из данных формы
+        Detail::create($request->all());
+
         return redirect()->route('admin.details.index');
     }
 
@@ -46,7 +52,10 @@ class DetailController extends Controller
      */
     public function show($id)
     {
-        return view('admin.details.show', compact('id'));
+        // получение записи по id
+        $item = Detail::findOrFail($id);
+
+        return view('admin.details.show', compact('item'));
     }
 
     /**
@@ -57,7 +66,10 @@ class DetailController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.details.edit', compact('id'));
+        // получение записи по id
+        $item = Detail::findOrFail($id);
+
+        return view('admin.details.edit', compact('item'));
     }
 
     /**
@@ -69,6 +81,11 @@ class DetailController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // получение записи по id
+        $item = Detail::findOrFail($id);
+        // обновление записи по данным формы
+        $item->update($request->all());
+
         return redirect()->route('admin.details.index');
     }
 
@@ -80,6 +97,12 @@ class DetailController extends Controller
      */
     public function destroy($id)
     {
+        // получение записи по id
+        $item = Detail::findOrFail($id);
+        // удаление записи
+        $item->delete();
+
         return redirect()->route('admin.details.index');
     }
 }
+

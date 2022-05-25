@@ -20,23 +20,23 @@
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{-- $item->id --}}</td>
+                  <td>{{ $item->id }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Название поля</th>
-                  <td>{{-- $item->name --}}</td>
+                  <td>{{ $item->name }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Значение</th>
-                  <td>{{-- $item->value --}}</td>
+                  <td>{{ $item->value }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Описание значения</th>
-                  <td>{{-- $item->description --}}</td>
+                  <td>{{ $item->description }}</td>
                 </tr>
               </tbody>
             </table>
-            <a class="btn btn-secondary" id="edit" href="{{ route('admin.details.edit', 1) }}">
+            <a class="btn btn-secondary" id="edit" href="{{ route('admin.details.edit',  $item->id) }}">
               Редактировать
             </a>
             <a class="btn btn-danger" id="cancel" href="{{ route('admin.details.index') }}">

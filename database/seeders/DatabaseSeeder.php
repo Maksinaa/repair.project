@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             [
                 ServiceSeeder::class,
                 ReviewSeeder::class,
+                DetailSeeder::class,
             ]
         );
     }

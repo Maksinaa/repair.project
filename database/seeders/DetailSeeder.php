@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Detail;
 use Illuminate\Database\Seeder;
 
 class DetailSeeder extends Seeder
@@ -13,6 +13,19 @@ class DetailSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Detail::factory()
+        ->count(1)
+        ->name()
+        ->create();
+
+        Detail::factory()
+        ->count(1)
+        ->inn()
+        ->create();
+
+        Detail::factory()
+        ->count(1)
+        ->icq()
+        ->create();
     }
 }
