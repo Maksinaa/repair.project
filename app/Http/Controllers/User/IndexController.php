@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
+use App\Models\Office;
 use App\Models\Review;
 use App\Models\Detail;
 use App\Http\Controllers\Controller;
@@ -15,14 +16,17 @@ class IndexController extends Controller
      */
     public function index()
     {
+        //офисы
+        $offices = Office::orderBy('id')->get();
+        //реквизиты
         $details = Detail::all('name', 'value');
 
-        // получение данных с сортировкой по полю number
+        // отзывы
         $reviews = Review::where('status', 'published')
         ->orderByDesc('created_at')
         ->limit(5)
         ->get(['id', 'name', 'text', 'rating', 'created_at']);
 
-        return view('user.index', compact('reviews','details'));
+        return view('user.index', compact('reviews','details', 'offices'));
     }
 }

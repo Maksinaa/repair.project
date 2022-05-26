@@ -20,7 +20,7 @@ class CreateOfficesTable extends Migration
             $table->string('phone', 20)->nullable();
             $table->text('hours');
             $table->string('social', 255)->nullable();
-            $table->string('map', 255)->nullable();
+            $table->text('map')->nullable();
 
             // $table->timestamps();
         });

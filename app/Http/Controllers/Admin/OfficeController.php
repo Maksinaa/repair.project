@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Office;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,10 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        return view('admin.offices.index');
+        // получение данных с сортировкой по полю number
+        $items = Office::orderBy('id')->get();
+
+        return view('admin.offices.index', compact('items'));
     }
 
     /**
@@ -35,6 +38,9 @@ class OfficeController extends Controller
      */
     public function store(Request $request)
     {
+        // создание записи из данных формы
+        Office::create($request->all());
+
         return redirect()->route('admin.offices.index');
     }
 
@@ -46,7 +52,10 @@ class OfficeController extends Controller
      */
     public function show($id)
     {
-        return view('admin.offices.show', compact('id'));
+        // получение записи по id
+        $item = Office::findOrFail($id);
+
+        return view('admin.offices.show', compact('item'));
     }
 
     /**
@@ -57,7 +66,10 @@ class OfficeController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.offices.edit', compact('id'));
+        // получение записи по id
+        $item = Office::findOrFail($id);
+
+        return view('admin.offices.edit', compact('item'));
     }
 
     /**
@@ -69,6 +81,11 @@ class OfficeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // получение записи по id
+        $item = Office::findOrFail($id);
+        // обновление записи по данным формы
+        $item->update($request->all());
+
         return redirect()->route('admin.offices.index');
     }
 
@@ -80,6 +97,11 @@ class OfficeController extends Controller
      */
     public function destroy($id)
     {
+        // получение записи по id
+        $item = Office::findOrFail($id);
+        // удаление записи
+        $item->delete();
+
         return redirect()->route('admin.offices.index');
     }
 }

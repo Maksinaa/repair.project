@@ -20,35 +20,35 @@
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{-- $item->id --}}</td>
+                  <td>{{  $item->id  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Название офиса</th>
-                  <td>{{-- $item->name --}}</td>
+                  <td>{{  $item->name  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Адрес офиса</th>
-                  <td>{{-- $item->address --}}</td>
+                  <td>{{  $item->address  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Контактный телефон</th>
-                  <td>{{-- $item->phone --}}</td>
+                  <td>{{  $item->phone  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Режим работы</th>
-                  <td>{{-- $item->hours --}}</td>
+                  <td>{{  $item->hours  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Группа в социальных сетях</th>
-                  <td>{{-- $item->social --}}</td>
+                  <td>{{  $item->social  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Ссылка на онлайн карту</th>
-                  <td>{{-- $item->map --}}</td>
+                  <td>{{  $item->map  }}</td>
                 </tr>
               </tbody>
             </table>
-            <a class="btn btn-secondary" id="edit" href="{{ route('admin.offices.edit', 1) }}">
+            <a class="btn btn-secondary" id="edit" href="{{ route('admin.offices.edit', $item->id ) }}">
               Редактировать
             </a>
             <a class="btn btn-danger" id="cancel" href="{{ route('admin.offices.index') }}">

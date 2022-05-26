@@ -46,48 +46,39 @@
 
     <!-- Офисы -->
     <div class="row mt-3">
-
-      <div class="col-sm-6 mt-3">
+    @forelse($offices as $office)
+      <div class="col mt-3">
         <div class="card text-white bg-primary">
-          <h4 class="card-header text-center">пгт. Оршанка</h4>
-          <img src="img/1.png" alt="...">
-          <div class="card-body"></div>
+          <h4 class="card-header text-center">{{ $office->name }}</h4>
+          @isset($office->map)
+          <div>
+          {!! $office->map !!}
+            </div>
+            @endisset
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <b>Адрес:</b> 425250, Республика Марий Эл, пгт. Оршанка, ул. Советская ул. д. 126, 2-й этаж.
+              <br>Адрес:</br>{{ $office->address }}
             </li>
             <li class="list-group-item">
-              <b>График работы:</b> понедельник – пятница с 8.30 до 17.00, обед с 12.00 до 13.00; суббота с 8.30 до
-              13.00.
+            <br>График работы:</br>{{ $office->hours }}
             </li>
+            @isset($office->phone)
             <li class="list-group-item">
-              <b>Телефон:</b> +7 (902) 744 98 97
+            <br>Телефон:</br>{{ $office->phone }}
             </li>
+            @endisset
+            @isset($office->social)
+            <li>
+            <a href="{{ $office->social }}" class="list-group-item">
+                <b>Мы в социальной сети:</b> {{ $office->social }}
+            </a>
+            </li>
+            @endisset
           </ul>
         </div>
       </div>
-
-      <div class="col-sm-6 mt-3">
-        <div class="card text-white bg-primary">
-          <h4 class="card-header text-center">пгт. Юрино</h4>
-          <img src="img/2.png" alt="...">
-          <div class="card-body"></div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <b>Адрес:</b> 425370, Республика Марий Эл, пгт. Юрино, Центральный проспект, д. 11а.
-            </li>
-            <li class="list-group-item">
-              <b>График работы:</b> понедельник – пятница с 8.00 до 17.00, обед с 12.00 до 13.00, суббота, воскресенье
-              выходной
-            </li>
-            <li class="list-group-item">
-              <b>Телефон:</b> +7 (995) 961 44 84
-            </li>
-          </ul>
-
-        </div>
-      </div>
-
+        @empty
+        @endforelse
     </div>
     <!-- Офисы -->
 
