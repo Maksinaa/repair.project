@@ -81,11 +81,13 @@
         <footer class="container pt-5 my-5 text-muted border-top">
     <div class="row">
       <div class="col-sm-6">
-        ИП Столбов С.Ю. &copy; 2021
+      <p>ICQ: {{ $details['icq'] ?? '' }}</p>
+          <p>ИНН: {{ $details['inn'] ?? '' }}</p>
+          <p>{{ $details['name'] ?? '' }} &copy; 2021</p>
       </div>
       <div class="col-sm-6 text-right">
         Мы в социальных сетях:
-        <img src="img/vk-logo.svg" alt="" height="24" class="d-inline-block align-text-top">
+        <img src="{{asset('img/vk-logo.svg')}}" alt="" height="24" class="d-inline-block align-text-top">
       </div>
     </div>
   </footer>

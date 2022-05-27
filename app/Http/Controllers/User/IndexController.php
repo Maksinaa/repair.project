@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
+use Illuminate\Support\Arr;
 use App\Models\Office;
 use App\Models\Review;
 use App\Models\Detail;
@@ -19,8 +20,13 @@ class IndexController extends Controller
         //офисы
         $offices = Office::orderBy('id')->get();
         //реквизиты
-        $details = Detail::all('name', 'value');
 
+        $details = Detail::all('name', 'value')->toArray();
+
+        $key = Arr::pluck($details, 'name');
+        $value = Arr::pluck($details, 'value');
+
+        $details = array_combine($key, $value);
         // отзывы
         $reviews = Review::where('status', 'published')
         ->orderByDesc('created_at')
