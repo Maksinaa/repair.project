@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
                 ReviewSeeder::class,
                 DetailSeeder::class,
                 OfficeSeeder::class,
-                UserSeeder::class,
+                ApplicationSeeder::class,
             ]
         );
     }

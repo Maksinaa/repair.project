@@ -19,7 +19,7 @@ class CreateApplicationsTable extends Migration
             $table->text('fault');
             $table->string('customer', 255);
             $table->string('status', 20);
-            $table->string('master', 255);
+            $table->integer('user_id')->unsigned();
             $table->date('completion')->nullable();
             $table->timestamps();
         });

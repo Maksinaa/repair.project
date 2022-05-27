@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\Office;
+use App\Models\Application;
 
 class User extends Authenticatable
 {
@@ -54,5 +55,14 @@ class User extends Authenticatable
     public function office()
     {
         return $this->belongsTo(Office::class);
+    }
+    /**
+     * Получить заявки пользователя
+     *
+     * @return Application
+     */
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
     }
 }

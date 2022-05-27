@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Application;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class ApplicationController extends Controller
 {
     /**
@@ -14,7 +14,11 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        return view('admin.applications.index');
+
+        // получение данных с сортировкой по полю number
+        $items = Application::orderByDesc('created_at')->get();
+
+        return view('admin.applications.index', compact('items'));
     }
 
     /**
@@ -35,6 +39,9 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
+        // создание записи из данных формы
+        Application::create($request->all());
+
         return redirect()->route('admin.applications.index');
     }
 
@@ -46,7 +53,10 @@ class ApplicationController extends Controller
      */
     public function show($id)
     {
-        return view('admin.applications.show', compact('id'));
+        // получение записи по id
+        $item = Application::findOrFail($id);
+
+        return view('admin.applications.show', compact('item'));
     }
 
     /**
@@ -57,7 +67,11 @@ class ApplicationController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.applications.edit', compact('id'));
+        $masters = User::where('position', 'master')->get();
+        // получение записи по id
+        $item = Application::findOrFail($id);
+
+        return view('admin.applications.edit', compact('item', 'masters'));
     }
 
     /**
@@ -69,6 +83,11 @@ class ApplicationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // получение записи по id
+        $item = Application::findOrFail($id);
+        // обновление записи по данным формы
+        $item->update($request->all());
+
         return redirect()->route('admin.applications.index');
     }
 
@@ -80,6 +99,11 @@ class ApplicationController extends Controller
      */
     public function destroy($id)
     {
+        // получение записи по id
+        $item = Application::findOrFail($id);
+        // удаление записи
+        $item->delete();
+
         return redirect()->route('admin.applications.index');
     }
 }

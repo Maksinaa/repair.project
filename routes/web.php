@@ -27,6 +27,7 @@ Route::group(
         Route::get('/', [IndexController::class, 'index'])->name('index');
         Route::get('/price', [PriceController::class, 'index'])->name('price');
         Route::get('/status', [StatusController::class, 'index'])->name('status');
+        Route::post('/statusid', [StatusController::class, 'status'])->name('statusid');
         Route::resource('reviews', UserReviewController::class)->only('create', 'store');
     }
 );

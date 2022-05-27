@@ -88,6 +88,9 @@
       <div class="col-sm-6 text-right">
         Мы в социальных сетях:
         <img src="{{asset('img/vk-logo.svg')}}" alt="" height="24" class="d-inline-block align-text-top">
+        <a class="nav-link" href="{{route('admin.index')}}">
+            для сотрудников
+        </a>
       </div>
     </div>
   </footer>

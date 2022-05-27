@@ -10,7 +10,7 @@
           </h3>
 
           <div class="card-body">
-            <form action="{{ route('admin.applications.update', 1) }}" method="post">
+            <form action="{{ route('admin.applications.update' , $item->id) }}" method="post">
               @csrf
               @method('put')
 

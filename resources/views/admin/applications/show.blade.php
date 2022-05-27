@@ -20,39 +20,52 @@
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{-- $item->id --}}</td>
+                  <td>{{  $item->id  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Дата заявки</th>
-                  <td>{{-- $item->date --}}</td>
+                  <td>{{  $item->created_at  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Модель оборудования</th>
-                  <td>{{-- $item->model --}}</td>
+                  <td>{{  $item->model  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Описание неисправности</th>
-                  <td>{{-- $item->fault --}}</td>
+                  <td>{{  $item->fault  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Ф.И.О. заказчика</th>
-                  <td>{{-- $item->customer --}}</td>
+                  <td>{{  $item->customer  }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Статус заявки</th>
-                  <td>{{-- $item->status --}}</td>
+                  <td>@switch($item->status)
+            @case('repair')
+                Ремонт
+                @break
+
+            @case('approval')
+                Согласование
+                @break
+
+            @case('completion')
+                Ремонт завершен
+                @break
+
+        @endswitch</td>
                 </tr>
                 <tr>
                   <th scope="row">Мастер</th>
-                  <td>{{-- $item->master --}}</td>
+                  <td>{{  $item->user->name }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Дата завершения ремонта</th>
-                  <td>{{-- $item->completion --}}</td>
+                  <td>{{  $item->completion  }}</td>
                 </tr>
               </tbody>
             </table>
-            <a class="btn btn-secondary" id="edit" href="{{ route('admin.applications.edit', 1) }}">
+            <a class="btn btn-secondary" id="edit" href="{{ route('admin.applications.edit' , $item->id) }}">
               Редактировать
             </a>
             <a class="btn btn-danger" id="cancel" href="{{ route('admin.applications.index') }}">
