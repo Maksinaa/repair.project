@@ -28,7 +28,21 @@
                 </tr>
                 <tr>
                   <th scope="row">Должность</th>
-                  <td>{{ $item->position }}</td>
+                  <td>@switch($item->position)
+                    @case('administrator')
+                    Администратор
+                        @break
+
+                    @case('master')
+                    Мастер
+                        @break
+
+                    @case('consultant')
+                    Консультант
+                        @break
+
+                @endswitch
+            </td>
                 </tr>
                 <tr>
                   <th scope="row">ID офиса</th>

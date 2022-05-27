@@ -39,7 +39,20 @@
                         {{ $item->rating }}
                     </td>
                     <td>
-                        {{ $item->status }}
+                    @switch($item->status)
+                    @case('moderation')
+                    Ожидает модерации
+                        @break
+
+                    @case('published')
+                    Опубликовано
+                        @break
+
+                    @case('denied')
+                    Отказано в публикации
+                        @break
+
+                @endswitch
                     </td>
                     <td class="text-end">
                       <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.reviews.show', $item->id) }}">

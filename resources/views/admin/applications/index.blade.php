@@ -35,20 +35,20 @@
                         {{  $item->model  }}
                     </td>
                     <td>
-                                @switch($item->status)
-                        @case('repair')
-                            Ремонт
-                            @break
+                            @switch($item->status)
+                    @case('repair')
+                        Ремонт
+                        @break
 
-                        @case('approval')
-                            Согласование
-                            @break
+                    @case('approval')
+                        Согласование
+                        @break
 
-                        @case('completion')
-                            Ремонт завершен
-                            @break
+                    @case('completion')
+                        Ремонт завершен
+                        @break
 
-                    @endswitch
+                @endswitch
                     </td>
                     <td class="text-end">
                       <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.applications.show' , $item->id) }}">

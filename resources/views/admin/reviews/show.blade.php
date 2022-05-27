@@ -44,7 +44,22 @@
                 </tr>
                 <tr>
                   <th scope="row">Статус отзыва</th>
-                  <td>{{ $item->status }}</td>
+                  <td>
+                    @switch($item->status)
+                    @case('moderation')
+                    Ожидает модерации
+                        @break
+
+                    @case('published')
+                    Опубликовано
+                        @break
+
+                    @case('denied')
+                    Отказано в публикации
+                        @break
+
+                @endswitch
+            </td>
                 </tr>
               </tbody>
             </table>

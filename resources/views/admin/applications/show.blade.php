@@ -40,20 +40,20 @@
                 </tr>
                 <tr>
                   <th scope="row">Статус заявки</th>
-                  <td>@switch($item->status)
-            @case('repair')
-                Ремонт
-                @break
+                  <td>        @switch($item->status)
+                    @case('repair')
+                        Ремонт
+                        @break
 
-            @case('approval')
-                Согласование
-                @break
+                    @case('approval')
+                        Согласование
+                        @break
 
-            @case('completion')
-                Ремонт завершен
-                @break
+                    @case('completion')
+                        Ремонт завершен
+                        @break
 
-        @endswitch</td>
+                @endswitch</td>
                 </tr>
                 <tr>
                   <th scope="row">Мастер</th>

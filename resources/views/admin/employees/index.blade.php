@@ -27,7 +27,22 @@
                   <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->position }}</td>
+                    <td>
+                    @switch($item->position)
+                    @case('administrator')
+                    Администратор
+                        @break
+
+                    @case('master')
+                    Мастер
+                        @break
+
+                    @case('consultant')
+                    Консультант
+                        @break
+
+                @endswitch
+                    </td>
                     <td>{{ $item->office->name }}</td>
                     <td class="text-end">
                       <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.employees.show', $item->id) }}">
