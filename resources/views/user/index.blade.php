@@ -57,14 +57,14 @@
             @endisset
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <br>Адрес:</br>{{ $office->address }}
+              <b>Адрес:</b>{{ $office->address }}
             </li>
             <li class="list-group-item">
-            <br>График работы:</br>{{ $office->hours }}
+            <b>График работы:</b>{{ $office->hours }}
             </li>
             @isset($office->phone)
             <li class="list-group-item">
-            <br>Телефон:</br>{{ $office->phone }}
+            <b>Телефон:</b>{{ $office->phone }}
             </li>
             @endisset
             @isset($office->social)

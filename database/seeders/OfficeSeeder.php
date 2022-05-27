@@ -13,14 +13,21 @@ class OfficeSeeder extends Seeder
      */
     public function run()
     {
-        Office::factory()
-        ->count(1)
-        ->orshanka()
-        ->create();
+                // создать офис Оршанка
+                Office::factory()
+                ->count(1)
+                ->orshanka()
+                ->hasUsers(1, ['position' => 'administrator'])
+                ->hasUsers(1, ['position' => 'master'])
+                ->hasUsers(1, ['position' => 'consultant'])
+                ->create();
 
-        Office::factory()
-        ->count(1)
-        ->yurino()
-        ->create();
+            // создать офис Юрино
+            Office::factory()
+                ->count(1)
+                ->yurino()
+                ->hasUsers(1, ['position' => 'master'])
+                ->hasUsers(1, ['position' => 'consultant'])
+                ->create();
     }
 }

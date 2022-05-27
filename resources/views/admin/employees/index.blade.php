@@ -23,33 +23,39 @@
                 </tr>
               </thead>
               <tbody>
-                  {{-- @forelse($items as $item) --}}
+                @forelse($items as $item)
                   <tr>
-                    <td>{{-- $item->id --}}</td>
-                    <td>{{-- $item->name --}}</td>
-                    <td>{{-- $item->position --}}</td>
-                    <td>{{-- $item->office_id --}}</td>
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->position }}</td>
+                    <td>{{ $item->office->name }}</td>
                     <td class="text-end">
-                      <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.employees.show', 1) }}">
+                      <a class="btn btn-sm btn-primary" id="show" href="{{ route('admin.employees.show', $item->id) }}">
                         Детали
                       </a>
-                      <a class="btn btn-sm btn-secondary" id="edit" href="{{ route('admin.employees.edit', 1) }}">
+                      <a class="btn btn-sm btn-secondary" id="edit"
+                        href="{{ route('admin.employees.edit', $item->id) }}">
                         Редактировать
                       </a>&nbsp;
-                      <form action="{{ route('admin.employees.destroy', 1) }}" method="post" class="float-end">
+                      <form action="{{ route('admin.employees.destroy', $item->id) }}" method="post"
+                        class="float-end">
                         @csrf
                         @method('delete')
-                        <button class="btn btn-sm btn-danger" id="delete" type="submit">Удалить</button>
+                        <button class="btn btn-sm btn-danger" id="delete" type="submit">
+                          Удалить
+                        </button>
                       </form>
                     </td>
                   </tr>
-                {{-- @empty --}}
+                @empty
                   <tr>
                     <td colspan="5">
-                      <h3 class="text-center">Нет сотридников</h3>
+                      <h3 class="text-center">
+                        Нет сотрудников
+                      </h3>
                     </td>
                   </tr>
-                {{--@endforelse--}}
+                @endforelse
               </tbody>
             </table>
           </div>

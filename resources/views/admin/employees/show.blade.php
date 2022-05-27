@@ -20,31 +20,27 @@
               <tbody>
                 <tr>
                   <th scope="row">ID</th>
-                  <td>{{-- $item->id --}}</td>
+                  <td>{{ $item->id}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Ф.И.О сотрудника</th>
-                  <td>{{-- $item->name --}}</td>
+                  <td>{{$item->name }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Должность</th>
-                  <td>{{-- $item->position --}}</td>
+                  <td>{{ $item->position }}</td>
                 </tr>
                 <tr>
                   <th scope="row">ID офиса</th>
-                  <td>{{-- $item->office_id --}}</td>
+                  <td>{{ $item->office->name }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Адрес электронной почты</th>
-                  <td>{{-- $item->email --}}</td>
+                  <td>{{ $item->email }}</td>
                 </tr>
-                <tr>
-                  <th scope="row">Пароль</th>
-                  <td>{{-- $item->password --}}</td>
-                </tr>
-              </tbody>
+               </tbody>
             </table>
-            <a class="btn btn-secondary" id="edit" href="{{ route('admin.employees.edit', 1) }}">
+            <a class="btn btn-secondary" id="edit" href="{{ route('admin.employees.edit', $item->id) }}">
               Редактировать
             </a>
             <a class="btn btn-danger" id="cancel" href="{{ route('admin.employees.index') }}">

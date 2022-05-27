@@ -1,20 +1,24 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\User;
+use App\Models\Office;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('admin.employees.index');
+        // получение данных с сортировкой по полю number
+        $items = User::orderBy('id')->get();
+
+        return view('admin.employees.index', compact('items'));
     }
 
     /**
@@ -24,7 +28,10 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('admin.employees.create');
+        // офисы
+        $offices = Office::orderBy('id')->get();
+
+        return view('admin.employees.create', compact('offices'));
     }
 
     /**
@@ -35,6 +42,16 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        $item = new User();
+
+        $item->name = $request['name'];
+        $item->position = $request['position'];
+        $item->office_id = $request['office_id'];
+        $item->email = $request['email'];
+        $item->password = bcrypt($request['password']);
+
+        $item->save();
+
         return redirect()->route('admin.employees.index');
     }
 
@@ -46,7 +63,10 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        return view('admin.employees.show', compact('id'));
+        // получение записи по id
+        $item = User::findOrFail($id);
+
+        return view('admin.employees.show', compact('item'));
     }
 
     /**
@@ -57,7 +77,12 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.employees.edit', compact('id'));
+        // получение записи по id
+        $item = User::findOrFail($id);
+        // офисы
+        $offices = Office::orderBy('id')->get();
+
+        return view('admin.employees.edit', compact('item', 'offices'));
     }
 
     /**
@@ -69,6 +94,20 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // получение записи по id
+        $item = User::findOrFail($id);
+
+        $item->name = $request['name'];
+        $item->position = $request['position'];
+        $item->office_id = $request['office_id'];
+        $item->email = $request['email'];
+
+        if ($request['password'] !== null) {
+            $item->password = bcrypt($request['password']);
+        }
+
+        $item->save();
+
         return redirect()->route('admin.employees.index');
     }
 
@@ -80,6 +119,11 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
+        // получение записи по id
+        $item = User::findOrFail($id);
+        // удаление записи
+        $item->delete();
+
         return redirect()->route('admin.employees.index');
     }
 }

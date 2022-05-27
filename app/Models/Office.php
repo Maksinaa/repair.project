@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Office extends Model
 {
@@ -22,4 +23,14 @@ class Office extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Получить задачи пользователя
+     *
+     * @return User
+     */
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

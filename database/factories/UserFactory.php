@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
-    /**
+       /**
      * Define the model's default state.
      *
      * @return array
@@ -16,9 +16,17 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'position' => $this->faker->randomElement(
+                [
+                    'administrator',
+                    'master',
+                    'consultant'
+                ]
+            ),
+            'office_id' => $this->faker->numberBetween(1, 2),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => bcrypt('password'), // password
             'remember_token' => Str::random(10),
         ];
     }
@@ -35,5 +43,52 @@ class UserFactory extends Factory
                 'email_verified_at' => null,
             ];
         });
+    }
+        /**
+     * Состояние для администратора
+     *
+     * @return Factory
+     */
+    public function administrator()
+    {
+        return $this->state(
+            function (array $attributes) {
+                return [
+                    'position' => 'administrator',
+                ];
+            }
+        );
+    }
+
+    /**
+     * Состояние для мастера
+     *
+     * @return Factory
+     */
+    public function master()
+    {
+        return $this->state(
+            function (array $attributes) {
+                return [
+                    'position' => 'master',
+                ];
+            }
+        );
+    }
+
+    /**
+     * Состояние для консультатнта
+     *
+     * @return Factory
+     */
+    public function consultant()
+    {
+        return $this->state(
+            function (array $attributes) {
+                return [
+                    'position' => 'consultant',
+                ];
+            }
+        );
     }
 }
